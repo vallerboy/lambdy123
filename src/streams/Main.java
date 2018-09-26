@@ -22,11 +22,16 @@ public class Main {
 //                .filter(s -> s.getAge() > 50)
 //                .forEach(s -> System.out.println(s));
         //Zadanie2
-
+//        personList.stream()
+//                .mapToInt(s -> s.getAge())
+//                .average()
+//                .ifPresent(s -> System.out.println(s));
+//
+        //Zadanie3
         personList.stream()
-                .mapToInt(s -> s.getAge())
-                .average()
-                .ifPresent(s -> System.out.println(s));
+                //brak nazwiska więc samo imie
+                .map(s -> new Animal(s.getName(), s.getAge() / 10))
+                .forEach(s -> System.out.println(s));
 
     }
 }
