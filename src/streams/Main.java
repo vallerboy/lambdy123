@@ -23,5 +23,10 @@ public class Main {
 //                .forEach(s -> System.out.println(s));
         //Zadanie2
 
+        personList.stream()
+                .mapToInt(s -> s.getAge())
+                .average()
+                .ifPresent(s -> System.out.println(s));
+
     }
 }
