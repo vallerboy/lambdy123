@@ -2,13 +2,17 @@ package streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+
 
 public class Main {
     public static void main(String[] args) {
 
         List<Person> personList = Arrays.asList(new Person("Oskar", 15),
                                                 new Person("Tomek", 20),
-                                                new Person("Aga", 35),
+                                                new Person("Aga", 20),
                                                 new Person("Janek", 50));
 
         //Zadanie1
@@ -39,8 +43,30 @@ public class Main {
         //0 - jesli cos jest takie samo
         //personList.sort((s, s1) ->  Integer.compare(s.getAge(), s1.getAge()));
 
-        personList.stream()
-                .sorted((s,s1) -> -1 * Integer.compare(s.getName().length(), s1.getName().length()))
-                .forEach(s -> System.out.println(s.getName()));
+//        personList.stream()
+//                .sorted((s,s1) -> -1 * Integer.compare(s.getName().length(), s1.getName().length()))
+//                .forEach(s -> System.out.println(s.getName()));
+
+        //Grupownie
+//        Map<Integer, List<Person>> grouped = personList
+//                .stream()
+//                .collect(Collectors.groupingBy(s -> s.getAge()));
+
+        //20 -> {Person("oskar"), Person("tomek")}
+        //35 -> {Person("aga")}
+        //15 -> {Person("Jacuś")}
+
+      //  System.out.println(grouped);
+
+//
+//        Map<Integer, List<Person>> grouped = personList
+//                .stream()
+//                .collect(Collectors.groupingBy(s -> s.getName().length() /* + s.getLastname().length()*/));
+
+
+         List<Integer> ageList = personList.stream()
+                 .map(s -> s.getAge())
+                 .collect(Collectors.toList());
+        System.out.println(ageList);
     }
 }
