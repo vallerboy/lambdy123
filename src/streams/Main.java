@@ -33,5 +33,11 @@ public class Main {
                 .map(s -> new Animal(s.getName(), s.getAge() / 10))
                 .forEach(s -> System.out.println(s));
 
+
+        //-1 - jestli cos ma isc do gory w zbiorze
+        //1 - jesli cos ma isc na doll
+        //0 - jesli cos jest takie samo
+        //personList.sort((s, s1) -> Integer.compare(s.getAge(), s1.getAge()));
+
     }
 }
