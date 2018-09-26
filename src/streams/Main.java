@@ -37,7 +37,10 @@ public class Main {
         //-1 - jestli cos ma isc do gory w zbiorze
         //1 - jesli cos ma isc na doll
         //0 - jesli cos jest takie samo
-        //personList.sort((s, s1) -> Integer.compare(s.getAge(), s1.getAge()));
+        //personList.sort((s, s1) ->  Integer.compare(s.getAge(), s1.getAge()));
 
+        personList.stream()
+                .sorted((s,s1) -> -1 * Integer.compare(s.getName().length(), s1.getName().length()))
+                .forEach(s -> System.out.println(s.getName()));
     }
 }
